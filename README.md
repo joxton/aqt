@@ -19,3 +19,11 @@ The function
 pwr_optim(control = list())
 ```
 maximizes the power difference between two-sample tests `control$test1` and `control$test2`.  
+
+For example, 
+```
+test1 = function(x, y) return(t.test(x,y)$p.value)
+test2 = function(x, y) return(wilcox.test(x,y)$p.value)
+
+res = pwr_optim(control = list(test1 = test1, test2 = test2))
+```
