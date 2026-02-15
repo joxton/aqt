@@ -27,7 +27,9 @@ test2 = function(x, y) return(wilcox.test(x,y)$p.value)
 
 res = pwr_optim(control = list(test1 = test1, test2 = test2))
 ```
-attempts to find a density function for `x` and one for `y` that maximizes the power of `test1` over `test2`. The optimization is over desities that are piecewice constant between `control$knotsx` and `control$knotsy`, and by default, both are initialized to `seq(-4,4,length = 10)`. The density values are the parameters `control$betax`and `control$betay`, which are optimized over. The optimization uses a stochastic cyclic ascent approach, sampling candidate values of the components of the densities and accepting those leading to an increase in estimated power. When the opimization plateaus, the knot-sequences are doubled, and the optimization continued. Once knot-doubling no longer increases the power difference, the optimization terminates. Multiple runs  
+attempts to find a density function for `x` and one for `y` that maximizes the power of `test1` over `test2`. The optimization is over desities that are piecewice constant between `control$knotsx` and `control$knotsy`, and by default, both are initialized to `seq(-4,4,length = 10)`. The density values are the parameters `control$betax`and `control$betay`, which are optimized over. The optimization uses a stochastic cyclic ascent approach, sampling candidate values of the components of the densities and accepting those leading to an increase in estimated power. When the opimization plateaus, the knot-sequences are doubled, and the optimization continued. Once knot-doubling no longer increases the power difference, the optimization terminates. Multiple runs are needed for reliable results. 
+
+Different constraints on the optimization are set by `control$constraint` and `control$location_shift`. By default, `control$location_shift = TRUE` and  `control$constraint = `unimodal'`, and the power optimization is under a location-shift model constrained to by unimodal. 
 
 
 The optimization is stochastic and should be run multiple times. 
