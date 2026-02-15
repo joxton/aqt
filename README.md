@@ -14,3 +14,8 @@ specified by `control$tau`. The individual quantile comparisons are pooled to pr
 
 ## Power difference optimization 
 
+The function 
+```
+pwr_optim(control = list())
+```
+maximizes the power difference between two-sample tests `control$test1` and `control$test2`.  
