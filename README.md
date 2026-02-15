@@ -31,7 +31,8 @@ attempts to find a density function for `x` and one for `y` that maximizes the p
 
 Different constraints on the optimization are set by `control$constraint` and `control$location_shift`. By default, `control$location_shift = TRUE` and  `control$constraint = `unimodal'`, and the power optimization is under a location-shift model constrained to be unimodal. Setting 
 ```
-res = pwr_optim(control = list(test1 = test1, test2 = test2, location_shift = FALSE, constraint = "dominance"))
+res = pwr_optim(control = list(test1 = test1, test2 = test2,
+                location_shift = FALSE, constraint = "dominance"))
 ```
 maximizes the power difference under the constraint that one of the distributions stochastically dominates the other. 
 The optimization is stochastic and should be run multiple times. 
