@@ -18,7 +18,7 @@ Running
 ```
 qd.test(x, y)
 ```
-i.e. without specifying `control`, 
+the test is based on quantile difference with bootstrap estimated standard errors (i.e. `control$method = 'bootstrap' `), and combined using `control$combiner = 'afisher'`. 
 
 ## Power difference optimization 
 
